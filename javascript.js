@@ -38,14 +38,22 @@ function playRound(player, computer) {
         return playerScore ++;
     } else if (player === computer) {
         console.log(`Tie! you both picked ${player}`);
-        return playerScore++, computerScore++ ;
     } else {
         console.log(`You lose! ${computer} beats ${player}`);
+        return computerScore++;
     }
 }
 
 
-
+function winner (playerScore, computerScore) {
+    if(playerScore > computerScore) {
+        console.log('You are a winner!!');
+    } else if (playerScore < computerScore) {
+        console.log('You lose! Try again next time');
+    } else {
+        console.log('Tie Game!')
+    }
+}
 
 function game () {
     for (let i = 0; i < 5; i++) {
@@ -54,7 +62,12 @@ function game () {
         console.log( playRound(player, computer));
     }
     
+    console.log(`Final Score !!!!
+                 Player: ${playerScore}
+                 Computer: ${computerScore}`);
+    winner(playerScore, computerScore);
 
+    
 }
 
 
